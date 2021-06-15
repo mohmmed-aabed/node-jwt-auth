@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Signup</title>
+  </head>
+
+  <body>
+    <h1>Signup</h1>
+
+    <form>
+      <label for="email">Email</label>
+      <input type="email" id="email" />
+      <br />
+      <br />
+      <label for="password">Password</label>
+      <input type="password" id="password" />
+      <br />
+      <br />
+      <button>Submit</button>
+    </form>
+
+    <script>
+      const form = document.querySelector('form');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const passowrd = e.target.password.value;
+        console.log(email, passowrd);
+      });
+    </script>
+  </body>
+</html>
