@@ -2,21 +2,19 @@ const express = require('express');
 const router = express.Router();
 
 const {
-  signup,
-  login,
+  getHomePage,
   getSignup,
   getLogin,
-  setCookies,
-  getCookies,
+  signup,
+  login,
 } = require('../controllers/authControllers');
 
 // ------------------------------------------------------
+router.get('/', getHomePage);
 router.get('/signup', getSignup);
 router.get('/login', getLogin);
 router.post('/signup', signup);
 router.post('/login', login);
-router.get('/set-cookies', setCookies);
-router.get('/get-cookies', getCookies);
 
 // ------------------------------------------------------
 module.exports = router;
