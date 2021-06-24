@@ -4,6 +4,8 @@ require('dotenv').config();
 const cookieParser = require('cookie-parser');
 const connectToDB = require('./db/connect');
 const userRoutes = require('./routes/authRoutes');
+const { getHomePage } = require('./controllers/authControllers');
+const requireAuth = require('./middleware/authMiddleware');
 
 // ------------------------------------------------------
 app.use(express.static('./public'));
@@ -11,6 +13,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use('/', userRoutes);
+
+app.get('/', requireAuth, getHomePage);
 
 // ------------------------------------------------------
 const port = process.env.PORT || 5000;
